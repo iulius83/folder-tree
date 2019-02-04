@@ -1,0 +1,17 @@
+h2 {
+    margin-left: 40px;
+  }
+  h3 {
+    margin-left: 60px;
+  }
+  .fa-folder-open:hover {
+    cursor: pointer;
+  }
+  .element.hidden {
+    opacity: 0;
+    display: none;
+  }
+  .element {
+    opacity: 100;
+    transition: opacity .1s ease-in;
+  }
