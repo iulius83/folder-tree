@@ -101,24 +101,35 @@ function showHide(clickedItem) {
         parent.classList.add('closed');
         
         while (parentNumber < parent.nextSibling.tagName[1]) {
-        parent.nextSibling.classList.add('hidden');
+            parent.nextSibling.classList.add('opacity');
 
-        console.log(parent.nextSibling ? true : false);
+            if (parent.nextSibling.nextSibling) {
+                parent = parent.nextSibling;
+            } else {
+                break;
+            }
+        }
 
-        if (parent.nextSibling.nextSibling) {
-            parent = parent.nextSibling;
-        } else {
-            break;
-        }
-        }
+        setTimeout(() => {
+            let parent = clickedItem.parentElement;
+            while (parentNumber < parent.nextSibling.tagName[1]) {
+                parent.nextSibling.classList.add('displayNone');
+    
+                if (parent.nextSibling.nextSibling) {
+                    parent = parent.nextSibling;
+                } else {
+                    break;
+                }
+            }
+        }, 600);
 
     } else if (parent.nextSibling) {
         while (parentNumber < parent.nextSibling.tagName[1]) {
         
         parent.classList.remove('closed');
-        parent.nextSibling.classList.remove('hidden');
 
-        console.log(parent.nextSibling ? true : false);
+        parent.nextSibling.classList.remove('opacity');
+        parent.nextSibling.classList.remove('displayNone');
 
         if (parent.nextSibling.nextSibling) {
             parent = parent.nextSibling;
